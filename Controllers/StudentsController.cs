@@ -51,9 +51,10 @@ namespace Assignment.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize]
+        [Authorize(Roles = "Adminstrator")]
         public ActionResult Create([Bind(Include = "Id,FirstName,LastName")] Student student)
         {
+
             student.UserId = User.Identity.GetUserId();
 
             ModelState.Clear();
