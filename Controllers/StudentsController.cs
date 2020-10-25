@@ -39,7 +39,7 @@ namespace Assignment.Controllers
             }
             return View(student);
         }
-        [Authorize]
+        [Authorize(Roles = "Adminstrator")]
         // GET: Students/Create
         public ActionResult Create()
         {
@@ -51,7 +51,7 @@ namespace Assignment.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Adminstrator")]
+        [Authorize]
         public ActionResult Create([Bind(Include = "Id,FirstName,LastName")] Student student)
         {
 
